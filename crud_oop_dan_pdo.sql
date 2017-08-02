@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 02, 2017 at 05:39 AM
+-- Generation Time: Aug 02, 2017 at 08:27 AM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -23,23 +23,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `biodata`
+-- Table structure for table `buku`
 --
 
-CREATE TABLE IF NOT EXISTS `biodata` (
-  `id` int(20) NOT NULL AUTO_INCREMENT,
-  `nama` varchar(50) NOT NULL,
-  `kelas` varchar(50) NOT NULL,
-  `alamat` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+CREATE TABLE IF NOT EXISTS `buku` (
+  `kodeBuku` int(10) NOT NULL,
+  `judulBuku` varchar(50) NOT NULL,
+  `pengarang` varchar(50) NOT NULL,
+  `penerbit` varchar(50) NOT NULL,
+  PRIMARY KEY (`kodeBuku`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `biodata`
+-- Dumping data for table `buku`
 --
 
-INSERT INTO `biodata` (`id`, `nama`, `kelas`, `alamat`) VALUES
-(2, 'Arma', 'XI RPL 1', 'Disini');
+INSERT INTO `buku` (`kodeBuku`, `judulBuku`, `pengarang`, `penerbit`) VALUES
+(1, 'aku', 'kamu', 'mereka');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
