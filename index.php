@@ -2,21 +2,20 @@
 <html>
 <head>
 	<title> TAMPIL DATA </title>
-	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
 <center>
 <h2> CRUD DENGAN OOP DAN PDO </h2>
 
-<h2>DAFTAR BIODATA SISWA</h2>
+<h2>DAFTAR BUKU</h2>
 
 <table border="1">
 	<tr>
-		<td>ID</td>
-		<td>Nama Siswa</td>
-		<td>Kelas Siswa</td>
-		<td>Alamat Siswa</td>
+		<td>Kode Buku</td>
+		<td>Judul Buku</td>
+		<td>Pengarang</td>
+		<td>Penerbit</td>
 		<td>Opsi</td>
 	</tr>
 	<?php 
@@ -26,13 +25,13 @@
 		while($data = $tampil->fetch(PDO::FETCH_OBJ)){
 			echo "
 				<tr>
-				<td> $data->id </td>
-				<td> $data->nama </td>
-				<td> $data->kelas </td>
-				<td> $data->alamat </td>
+				<td> $data->kodeBuku </td>
+				<td> $data->judulBuku </td>
+				<td> $data->pengarang </td>
+				<td> $data->penerbit </td>
 				<td> 
-				<a href='index.php?hapus=$data->id'>Hapus</a> ||
-				<a href='edit.php?id=$data->id'>Edit</a>
+				<a href='index.php?hapus=$data->kodeBuku'>Hapus</a> ||
+				<a href='edit.php?kodeBuku=$data->kodeBuku'>Edit</a>
 				</td>
 				</tr>";
 		}

@@ -2,30 +2,33 @@
 <html>
 <head>
 	<title>Tambah Data</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
 <center>
-<h2>Tambah Biodata</h2>
+<h2>Tambah Buku</h2>
 <form action="tambah.php" method="POST">
 
 	<input type="hidden" name="id">
 	<table>
 		<tr>
-			<td>Nama Lengkap : </td>
-			<td><input type="text" name="nama"></td>
+			<td>Kode Buku : </td>
+			<td><input type="text" name="kodeBuku"></td>
 		</tr>
 		<tr>
-			<td>Kelas : </td>
-			<td><input type="text" name="kelas"></td>
+			<td>Judul Buku : </td>
+			<td><input type="text" name="judulBuku"></td>
 		</tr>
 		<tr>
-			<td>Alamat : </td>
-			<td><input type="text" name="alamat"></td>
+			<td>Pengarang : </td>
+			<td><input type="text" name="pengarang"></td>
+		</tr>
+		<tr>
+			<td>Penerbit : </td>
+			<td><input type="text" name="penerbit"></td>
 		</tr>
 	</table>
-	<button type="submit" name="tambahbio">Simpan</button>
+	<button type="submit" name="tambahbuku">Simpan</button>
 	<button type="reset">Reset</button>
 </form>
 </center>
@@ -35,14 +38,14 @@
 <?php 
 
 	require 'library.php';
-	if(isset($_POST['tambahbio'])){
-		$id = $_POST['id'];
-		$nama = $_POST['nama'];
-		$kelas = $_POST['kelas'];
-		$alamat = $_POST['alamat'];
+	if(isset($_POST['tambahbuku'])){
+		$kodeBuku = $_POST['kodeBuku'];
+		$judulBuku = $_POST['judulBuku'];
+		$pengarang = $_POST['pengarang'];
+		$penerbit = $_POST['penerbit'];
 
 		$lib = new library();
-		$tambah = $lib->tambahSiswa($id,$nama,$kelas,$alamat);
+		$tambah = $lib->tambahBuku($kodeBuku,$judulBuku,$pengarang,$penerbit);
 		if($tambah){
 			header('Location : index.php');
 		}else{

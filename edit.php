@@ -2,9 +2,9 @@
 
 require 'library.php';
 
-if(isset($_GET['id'])){
+if(isset($_GET['kodeBuku'])){
 	$lib = new library();
-	$bio = $lib->editSiswa($_GET['id']);
+	$bio = $lib->editBuku($_GET['kodeBuku']);
 	$edit = $bio->fetch(PDO::FETCH_OBJ);
 	echo '
 		<!DOCTYPE html>
@@ -17,21 +17,24 @@ if(isset($_GET['id'])){
 	<h2>Edit Data</h2>
 	<form action="edit.php" method="POST">
 	<table>
-	<input type="hidden" name="id" value="'.$edit->id.'" /><br><br>
 	<tr>
-		<td>Nama Lengkap : </td>
-		<td><input type="text" name="nama" value="'.$edit->nama.'"></td>
+		<td>Kode Buku : </td>
+		<td><input type="text" name="kodeBuku" value="'.$edit->kodeBuku.'"></td>
 	</tr>
 	<tr>
-		<td>Kelas : </td>
-		<td><input type="text" name="kelas" value="'.$edit->kelas.'"></td>
+		<td>Judul Buku : </td>
+		<td><input type="text" name="judulBuku" value="'.$edit->judulBuku.'"></td>
 	</tr>
 	<tr>
-		<td>Alamat : </td>
-		<td><input type="text" name="alamat" value="'.$edit->alamat.'"></td>
+		<td>Pengarang : </td>
+		<td><input type="text" name="pengarang" value="'.$edit->pengarang.'"></td>
+	</tr>
+	<tr>
+		<td>Penerbit : </td>
+		<td><input type="text" name="penerbit" value="'.$edit->penerbit.'"></td>
 	</tr>
 	</table>
-	<button type="submit" name="updateSiswa">Simpan</button>
+	<button type="submit" name="updateBuku">Simpan</button>
 	</form>
 	</center>
 	</body>
@@ -40,13 +43,13 @@ if(isset($_GET['id'])){
 
 }
 
-if(isset($_POST['updateSiswa'])){
-	$id = $_POST['id'];
-	$nama = $_POST['nama'];
-	$kelas = $_POST['kelas'];
-	$alamat = $_POST['alamat'];
+if(isset($_POST['updateBuku'])){
+	$kodeBuku = $_POST['kodeBuku'];
+	$judulBuku = $_POST['judulBuku'];
+	$pengarang = $_POST['pengarang'];
+	$penerbit = $_POST['penerbit'];
 	$lib = new library();
-	$upd = $lib->updateSiswa($id,$nama,$kelas,$alamat);
+	$upd = $lib->updateBuku($kodeBuku,$judulBuku,$pengarang,$penerbit);
 	if($upd){
 		header('Location : index.php');
 	}

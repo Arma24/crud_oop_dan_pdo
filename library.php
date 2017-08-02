@@ -6,8 +6,8 @@
 		}
 
 		//tambah data baru
-		public function tambahSiswa($id,$nama,$kelas,$alamat){
-				$sql = "INSERT INTO biodata(id,nama,kelas,alamat) VALUES('$id','$nama','$kelas','$alamat')";
+		public function tambahBuku($kodeBuku,$judulBuku,$pengarang,$penerbit){
+				$sql = "INSERT INTO buku(kodeBuku,judulBuku,pengarang,penerbit) VALUES('$kodeBuku','$judulBuku','$pengarang','$penerbit')";
 				$query = $this->db->query($sql);
 				if(!$query){
 					return "Gagal Masuk";
@@ -17,15 +17,15 @@
 		}
 
 		//mengedit data
-		public function editSiswa($id){
-			$sql = "SELECT * FROM biodata WHERE id='$id'";
+		public function editBuku($kodeBuku){
+			$sql = "SELECT * FROM buku WHERE kodeBuku='$kodeBuku'";
 			$query = $this->db->query($sql);
 			return $query;
 		}
 
 		//tambah data yang ada di database
-		public function updateSiswa($id,$nama,$kelas,$alamat){
-			$sql = "UPDATE biodata SET id='$id',nama='$nama',kelas='$kelas',alamat='$alamat' WHERE biodata.id='$id'";
+		public function updateBuku($kodeBuku,$judulBuku,$pengarang,$penerbit){
+			$sql = "UPDATE buku SET kodeBuku='$kodeBuku',judulBuku='$judulBuku',pengarang='$pengarang',penerbit='$penerbit' WHERE buku.kodeBuku='$kodeBuku'";
 			$query = $this->db->query($sql);
 			if(!$query){
 				return "Gagal Update";
@@ -36,15 +36,15 @@
 
 		//menampilkan data yang ada di database
 		public function tampilData(){
-			$sql = "SELECT * FROM biodata";
+			$sql = "SELECT * FROM buku";
 			$query = $this->db->query($sql
 				);
 			return $query;
 		}
 
 		//menghapus data
-		public function hapusData($id){
-			$sql = "DELETE FROM biodata WHERE id='$id'";
+		public function hapusData($kodeBuku){
+			$sql = "DELETE FROM buku WHERE kodeBuku='$kodeBuku'";
 			$query = $this->db->query($sql);
 		}
 	}
